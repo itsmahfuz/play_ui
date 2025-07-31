@@ -20,12 +20,10 @@
   </p>
 
   <!-- CTA Button -->
-  <button
-    class="bg-black text-white px-6 py-3 rounded-full text-base font-medium hover:bg-gray-800 transition-colors flex items-center gap-2 group">
-    Send me The Link
-    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
-         viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-    </svg>
+  <button routerLink="/confirmation" type="button" class="cursor-pointer mt-6 bg-black rounded-full pl-4 pr-2 py-2 flex items-center gap-2 hover:bg-gray-800 transition-colors shadow-sm md:px-6 md:pr-2 md:gap-3">
+    <div class="text-sm font-medium text-white md:text-base">Send me The Link</div>
+    <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center md:w-8 md:h-8">
+      <span class="text-black text-sm font-bold">→</span>
+    </div>
   </button>
 </main>
