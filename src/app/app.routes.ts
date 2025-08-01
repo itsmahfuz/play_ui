@@ -11,9 +11,9 @@ import {SendMeTheLink} from './send-me-the-link/send-me-the-link';
 import {Confirmation} from './confirmation/confirmation';
 
 export const routes: Routes = [
-  {path: '', pathMatch: "full", component: LetsGo},
-  {path: 'landing', pathMatch: "full", component: Landing},
-  // {path: 'lets-go', component: LetsGo},
+  {path: '', pathMatch: "full", component: Landing},
+  // {path: '', pathMatch: "full", component: Landing},
+  {path: 'lets-go', component: LetsGo},
   {path: 'am-good', component: AmGood},
   {path: 'play-now', component: PlayNow},
   {path: 'keep-going', component: KeepGoing},
