@@ -13,10 +13,45 @@
   </p>
 
   <!-- CTA Button -->
-  <button routerLink="/box-for-reflection" type="button" class="cursor-pointer mt-6 bg-black rounded-full pl-4 pr-2 py-2 flex items-center gap-2 hover:bg-gray-800 transition-colors shadow-sm md:px-6 md:pr-2 md:gap-3">
-    <div class="text-sm font-medium text-white md:text-base">Keep Going</div>
-    <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center md:w-8 md:h-8">
-    <span class="text-black text-sm font-bold leading-none md:text-base -mt-[3px] sm:mt-0">→</span>
-  </div>
+<!--  <button routerLink="/box-for-reflection" type="button" class="cursor-pointer mt-6 bg-black rounded-full pl-4 pr-2 py-2 flex items-center gap-2 hover:bg-gray-800 transition-colors shadow-sm md:px-6 md:pr-2 md:gap-3">-->
+<!--    <div class="text-sm font-medium text-white md:text-base">Keep Going</div>-->
+<!--    <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center md:w-8 md:h-8">-->
+<!--    <span class="text-black text-sm font-bold leading-none md:text-base -mt-[3px] sm:mt-0">→</span>-->
+<!--  </div>-->
+<!--  </button>-->
+
+  <!-- CTA Button -->
+  <button routerLink="/box-for-reflection"
+          type="button"
+          [disabled]="isButtonDisabled"
+          [ngClass]="{
+            'bg-black hover:bg-gray-800 text-white cursor-pointer': !isButtonDisabled,
+            'bg-gray-300 text-gray-500 cursor-not-allowed': isButtonDisabled
+          }"
+          class="mt-6 rounded-full pl-4 pr-2 py-2 flex items-center gap-2 transition-colors shadow-sm md:px-6 md:pr-2 md:gap-3 text-sm md:text-base">
+    <div>
+      {{ isButtonDisabled ? 'Keep Going (' + remainingTime + 's)' : 'Keep Going' }}
+    </div>
+    <div
+      class="w-6 h-6 rounded-full flex items-center justify-center md:w-8 md:h-8"
+      [ngClass]="{
+        'bg-white': !isButtonDisabled,
+        'bg-gray-200': isButtonDisabled
+      }">
+      <span
+        class="font-bold leading-none"
+        [ngClass]="{
+          'text-black': !isButtonDisabled,
+          'text-gray-400': isButtonDisabled
+        }"
+      >→</span>
+    </div>
   </button>
+
+  <!-- Fallback: Click to play if needed -->
+  <div *ngIf="showPlayFallback && isButtonDisabled" class="mt-4">
+    <button (click)="playAudioManually()" class="text-blue-600 underline text-sm">Click here if music didn't start</button>
+  </div>
 </main>
+
+<audio #audioPlayer src="/assets/music/Experience%201.mp3" preload="auto"></audio>
