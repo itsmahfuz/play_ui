@@ -30,9 +30,9 @@ export class MyGiftPlease implements OnInit {
 
   saveUser() {
     let payload = {...this.frmGroup.value};
-    payload.currentExp = 'Experience_1'
+    payload.currentExp = 'Experience_2'
     this.emailService.createUser(payload).subscribe(response => {
-      console.log(response);
+      localStorage.setItem('toEmail', payload?.userEmail);
       this.router.navigate(['send-me']);
     })
   }

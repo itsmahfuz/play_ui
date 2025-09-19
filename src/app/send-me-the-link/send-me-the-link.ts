@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {RouterLink} from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
+import {EmailGeneratorService} from '../service/email-generator.service';
 
 @Component({
   selector: 'app-send-me-the-link',
@@ -10,5 +11,18 @@ import {RouterLink} from '@angular/router';
   styleUrl: './send-me-the-link.scss'
 })
 export class SendMeTheLink {
+
+  emailService = inject(EmailGeneratorService);
+  router = inject(Router);
+
+  generateEmail() {
+    let payload: any = {
+      toEmail: localStorage.getItem('toEmail')
+    };
+    this.emailService.generateEmail(payload).subscribe(response => {
+      console.log(response)
+      this.router.navigateByUrl('confirmation');
+    })
+  }
 
 }

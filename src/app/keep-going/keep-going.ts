@@ -15,7 +15,7 @@ export class KeepGoing implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('audioPlayer') audioPlayerRef!: ElementRef<HTMLAudioElement>;
   isButtonDisabled = true;
-  remainingTime = 310; // in seconds
+  remainingTime = 10; // in seconds
   timerInterval!: any;
   showPlayFallback = false;
 

@@ -15,8 +15,8 @@ export class EmailGeneratorService {
     return this.http.post<any>(this.baseUrl + '/email/create-user', data, );
   }
 
-  sendEmail(data: any): Observable<any> {
-    return this.http.post<any>(this.baseUrl, data);
+  generateEmail(data: any): Observable<any> {
+    return this.http.post<any>(this.baseUrl + '/email/generate', data);
   }
 
 }
